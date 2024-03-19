@@ -11,6 +11,7 @@ on:
 
 jobs:
   lint-commits:
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-22.04
     if: github.actor != 'dependabot[bot]'
     steps:
@@ -20,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Check commits
-        uses: wagoid/commitlint-github-action@v4
+        uses: wagoid/commitlint-github-action@v5
 
   lint-markdown:
     runs-on: ubuntu-22.04
